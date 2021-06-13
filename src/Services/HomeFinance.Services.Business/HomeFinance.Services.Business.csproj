@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Collection" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="4.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\HomeFinance.Infrastrucutre.Data\HomeFinance.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>

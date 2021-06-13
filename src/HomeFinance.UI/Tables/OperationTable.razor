@@ -1,0 +1,45 @@
+﻿@using System.Globalization
+@if (Operations.Count > 0)
+{
+    <table class="table table-sm">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var operation in Operations)
+            {
+                string color = operation.CategoryIncomeOrExpense ? _incomeColor : _expenseColor;
+                string amount = operation.CategoryIncomeOrExpense ? operation.Amount.ToString() : $"-{operation.Amount}";
+                <tr style="background-color:@color">
+                    <td class="align-middle">
+                        @operation.Date.ToString("d", CultureInfo.InvariantCulture)
+                    </td>
+                    <td class="align-middle">
+                        @amount
+                    </td>
+                    <td class="align-middle">
+                        @operation.CategoryName
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" class="btn btn-info" @onclick="() => RedirectToUpdate(operation.Id)">Update</button>
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" class="btn btn-dark" @onclick="() => Delete(operation.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <span>
+        Loading categories...
+    </span>
+}

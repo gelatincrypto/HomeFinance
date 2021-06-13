@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/homefinancedbserver/databases/HomeFinance_db",
+      "type": "mssql.azure",
+      "connectionId": "Data/HomeFinanceDb/ConnectionString",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

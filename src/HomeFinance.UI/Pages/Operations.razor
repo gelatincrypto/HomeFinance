@@ -1,0 +1,17 @@
+﻿@page "/operations"
+@using HomeFinance.UI.Tables
+@using HomeFinance.UI.Components
+<div class="row">
+        <div class="col-9">
+            <h3>Your operations</h3>
+        </div>
+        <a class="btn btn-primary" href="/createOperation">Add operation</a>
+    </div>
+<div class="row">
+    <OperationTable Operations="OperationsModels" OnDeleted="DeleteOperation"/>
+</div>
+<div class="row">
+    <div class="col">
+        <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage"/>
+    </div>
+</div>

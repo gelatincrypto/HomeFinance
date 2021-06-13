@@ -1,0 +1,31 @@
+﻿@page "/periodReport"
+@using HomeFinance.UI.Components
+@using HomeFinance.UI.Tables
+<h3>Operation report by period</h3>
+<EditForm Model="PeriodReportModel">
+    <div class="form-group row">
+        <label for="startDate" class="col-md-2 col-form-label">StartDate:</label>
+        <div class="col-md-10">
+            <InputDate id="startDate" @bind-Value="PeriodReportModel.StartDay"></InputDate>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="endDate" class="col-md-2 col-form-label">EndDate:</label>
+        <div class="col-md-10">
+            <InputDate id="endDate" @bind-Value="PeriodReportModel.EndDay"></InputDate>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button type="submit" class="btn btn-primary" @onclick="() => GetReport()">GetReport</button>
+        </div>
+    </div>
+    <div class="row">
+        <ReportTable ReportTableModel="PeriodReportModel.ReportTable" />
+    </div>
+    <div class="row">
+        <div class="col">
+            <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
+        </div>
+    </div>
+</EditForm>

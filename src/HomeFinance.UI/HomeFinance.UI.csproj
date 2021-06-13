@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5</TargetFramework>
+    <UserSecretsId>5b8e3718-9357-4922-9160-51ede25dcdf3</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.SignalR" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services\HomeFinance.Services.Business\HomeFinance.Services.Business.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+﻿@page "/dayReport"
+@using HomeFinance.UI.Components
+@using HomeFinance.UI.Tables
+<h3>Operation report by day</h3>
+<EditForm Model="DayReportModel">
+    <div class="form-group row">
+        <label for="date" class="col-md-2 col-form-label">Date:</label>
+        <div class="col-md-10">
+            <InputDate id="date" @bind-Value="DayReportModel.Day"></InputDate>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button type="submit" class="btn btn-primary" @onclick="() => GetReport()">GetReport</button>
+        </div>
+    </div>
+    <div class="row">
+        <ReportTable ReportTableModel="DayReportModel.ReportTable" />
+    </div>
+    <div class="row">
+        <div class="col">
+            <Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage" />
+        </div>
+    </div>
+</EditForm>

@@ -1,0 +1,54 @@
+﻿@using System.Globalization
+@if (ReportTableModel?.Operations != null && ReportTableModel.Operations.Count > 0)
+{
+    long balance = ReportTableModel.TotalAmount.IncomeAmount - ReportTableModel.TotalAmount.ExpenseAmount;
+    string totalColor = balance > 0 ? _incomeColor : _expenseColor;
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" style="width: 33.33%">TotalIncome</th>
+                <th scope="col" style="width: 33.33%">TotalExpense</th>
+                <th scope="col" style="width: 33.33%">TotalBalance</th>
+            </tr>
+        </thead>
+        <tr>
+            <td class="align-middle" style="background-color: @_incomeColor">@ReportTableModel.TotalAmount.IncomeAmount</td>
+            <td class="align-middle" style="background-color: @_expenseColor">@ReportTableModel.TotalAmount.ExpenseAmount</td>
+            <td class="align-middle" style="background-color: @totalColor">@balance</td>
+        </tr>
+    </table>
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col" style="width: 33.33%">Date</th>
+                <th scope="col" style="width: 33.33%">Amount</th>
+                <th scope="col" style="width: 33.33%">CategoryId</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in ReportTableModel.Operations)
+            {
+                string color = record.CategoryIncomeOrExpense ? _incomeColor : _expenseColor;
+                string amount = record.CategoryIncomeOrExpense ? record.Amount.ToString() : $"-{record.Amount}"; ;
+                <tr style="background-color:@color">
+                    <td class="align-middle">
+                        @record.Date.ToString("d", CultureInfo.InvariantCulture)
+                    </td>
+                    <td class="align-middle">
+                        @amount
+                    </td>
+                    <td class="align-middle">
+                        @record.CategoryName
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <span>
+        Enter the date(s) and click GetReport button.
+    </span>
+}
