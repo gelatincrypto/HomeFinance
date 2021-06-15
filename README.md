@@ -10,6 +10,9 @@
 
 ## Стэк
 Приложение построено с использованием onion-архитектуры.
+### DB
+MS SQL Server
+
 ### WebApi
 .Net 5 + EF Core + Swagger + AutoMapper
 ### UI
